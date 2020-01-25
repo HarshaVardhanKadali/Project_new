@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html >
+    <head>
+  <% include ./head.ejs%>
+  <style>
+    #customers {
+    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+#customers td, #customers th {
+    border: 1px solid #ddd;
+    padding: 8px;
+}
+
+#customers tr:nth-child(even){background-color: #f2f2f2;}
+
+#customers tr:hover {background-color: #ddd;}
+
+#customers th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: #f44336;
+    color: white;
+}
+    ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #f44336;
+}
+
+li {
+    float: left;
+}
+
+li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+li a:hover:not(.active) {
+    background-color: white;
+}
+
+.active {
+    background-color: #4CAF50;
+}
+  </style>
+ 
+</head>
+<body>
+  <% include ./header.ejs%>
+  
+  
+ 
+
+<!-- !PAGE CONTENT! -->
+<div class="w3-main" style="margin-left:340px;margin-right:40px">
+
+  
+  
+  <!-- Contact -->
+  <div class="w3-container" id="contact" style="margin-top:75px">
+    <h1 class="w3-xxxlarge w3-text-red"><b> EMPLOYEE DETAILS</b></h1>
+    <ul>
+      <li><a class="w3-hover-white" href="/users/employeedetails">ADD</a></li>
+      <li><a class="w3-hover-white" href="/users/viewemployee">VIEW</a></li>
+      <li><a class="w3-hover-white" href="/users/deleteemployee">DELETE</a></li>
+      <li><a class="w3-hover-white" href="#about">UPDATE</a></li>
+    </ul>
+    <hr style="width:50px;border:5px solid red" class="w3-round">
+    <p>View the employee details</p>
+    <form action="/users/viewempolyee" method="POST" ng-repeat="s in students">
+      
+      <div class="w3-section">
+        <label>User name</label>
+        <input class="w3-input w3-border" type="text" name="username"  placeholder="username">
+      </div>
+      <table id="customers">
+        <tr>
+          <th>NAME OF THE EMPLOYEE</th>
+          <th>EMAIL</th>
+          <th>PHONE</th>
+          <th>ROLE ID</th>
+        </tr>
+        <% employee.forEach(function(employee){ %>
+         <td> <%= employee.name %></td>
+          <td><%= employee.email %></td>
+        <td><%= employee.phone %></td>
+      <td> <%= employee.roleid %></td>
+          
+        <% })%>
+        
+      </table></br>
+      
+      
+      <!-- <div><ul>
+        <% employee.forEach(function(employee){ %>
+          <%= employee.name %>
+          <%= employee.email %>
+          <%= employee.phone %>
+          <%= employee.roleid %>
+          
+        <% })%>
+      </ul></div> -->
+      <!-- <div class="w3-section">
+            <label>Name</label>
+            <input disabled class="w3-input w3-border" type="text" name="name"  placeholder="NAME" value=<%= employee.name %>> 
+          </div> -->
+    <!--   <div class="w3-section">
+        <label>Email</label>
+        <input disabled class="w3-input w3-border" type="email" name="email"  placeholder="Email">
+      </div>
+      <div class="w3-section">
+        <label>Phone</label>
+        <input disabled class="w3-input w3-border" type="tel" name="phone"  placeholder="Phone">
+      </div><div class="w3-section">
+        <label>Role ID</label>
+        <select disabled name="roleid" id=""  class="w3-input w3-border">
+            <option value="admin">admin</option>
+            <option value="tpgs">Tpg-school</option>
+            <option value="tpgi">Tpg-inter</option>
+            <option value="duvvas">Duvva-school</option>
+            <option value="duvvai">Duvva-inter</option>
+        </select>
+      </div>
+      <div class="w3-section">
+        <label>Password</label>
+        <input disabled class="w3-input w3-border" type="password" name="password"  placeholder="*********">
+      </div>
+      <div class="w3-section">
+        <label>Confirm Password</label>
+        <input disabled class="w3-input w3-border" type="password" name="password2"  placeholder="*********">
+      </div> -->
+      <button type="submit" class="w3-button w3-block w3-padding-large w3-red w3-margin-bottom">VIEW EMPLOYEE</button>
+    </form>  
+  </div>
+
+<!-- End page content -->
+</div>
+    
+
+
+<% include ./footer.ejs%>
+  
+  </body>
+</html>

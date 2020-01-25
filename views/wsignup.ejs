@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <% include ./head.ejs%>
+  </head>
+  <body>
+
+    <div class="signup-box">
+      <img src="/img/logo.png" class="avatar" alt="Avatar Image">
+      <h1>WORKER SIGN UP</h1>
+      <form action="/users/wsignup" method="POST">
+        <!-- INPUT -->
+        
+        <input type="text" placeholder="Enter Name" required name="name">
+        <input type="text" placeholder="Enter Number" required name="phn">
+        <input type="text" placeholder="Confirm Number" required name="cphn">    
+        <select name="profession">
+            <option value="0">Select Profession</option>
+            <option value="carpenter">CARPENTER</option>
+            <option value="electrician">ELECTRICIAN</option>
+            <option value="plumber">PLUMBER</option>
+        </select>
+        <select name="city">
+            <option value="0">Select City</option>
+            <option value="tpg">TADEPALLIGUDEM</option>
+            <option value="elr">ELURE</option>
+            <option value="bvrm">BHIMAVARAM</option>
+        </select>
+        <input type="text" placeholder="Address" name="addr">        
+        <input type="submit" value="Sign Up">
+        <a href="/">Already have An account?</a>
+      </form>
+    </div>
+  </body>
+</html>

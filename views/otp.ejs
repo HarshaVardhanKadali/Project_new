@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <% include ./head.ejs%>
+  </head>
+  <body>
+    <div class="login-box">
+      <img src="/img/logo.png" class="avatar" alt="Avatar Image">
+      <h1>ENTER OTP</h1>
+      <form action="/users/otp" method="POST">
+        <input type="text" placeholder="Enter OTP" required name="otp">
+        <input type="submit" value="Log In">
+        
+        <!-- <a href="#">Don't have An account</a><br>
+        <a href="/users/usignup">User?</a>&nbsp;&nbsp;&nbsp;&nbsp;
+        <a href="/users/wsignup">Worker?</a> -->
+        <!-- <div id="recaptcha-container"></div> -->
+        
+      </form>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html >
+    <head>
+  <% include ./head.ejs%>
+ 
+</head>
+<body>
+  
+  
+
+  <div class="w3-overlay w3-hide-large" onclick="w3_close()" style="cursor:pointer" title="close side menu" id="myOverlay"></div>
+
+<!-- !PAGE CONTENT! -->
+<div class="w3-main" style="margin-left:340px;margin-right:40px">
+
+  
+  
+  <!-- Contact -->
+  <div class="w3-container" id="contact" style="margin-top:75px">
+    <h1 class="w3-xxxlarge w3-text-red"><b>Change Password</b></h1>
+    <hr style="width:50px;border:5px solid red" class="w3-round">
+    
+    <form action="/users/changepass" method="POST">
+      <div class="w3-section">
+        <label>User name</label>
+        <input class="w3-input w3-border" type="text" name="username" required placeholder="username">
+	  </div>
+	  <div class="w3-section">
+        <label>Password</label>
+        <input class="w3-input w3-border" type="password" name="password1" required placeholder="********">
+	  </div>
+	  <div class="w3-section">
+			<label>Re-enter Password</label>
+			<input class="w3-input w3-border" type="password" name="password2" required placeholder="********">
+		  </div>
+      
+      <button type="submit" class="w3-button w3-block w3-padding-large w3-red w3-margin-bottom">Change Password</button>
+    </form>  
+  </div>
+
+<!-- End page content -->
+</div>
+    
+
+
+<% include ./footer.ejs%>
+  
+  </body>
+</html>
+			
+
+
+
+
+
+<!-- <form action="/users/changepass" class="templatemo-login-form" method="POST">
+	        	<div class="form-group">
+	        		<div class="input-group">
+		        		<div class="input-group-addon"><i class="fa fa-user fa-fw"></i></div>	        		
+		              	<input type="text" class="form-control" name="username" placeholder="USER ID" >           
+		          	</div>	
+	        	</div>
+	        	<div class="form-group">
+	        		<div class="input-group">
+		        		<div class="input-group-addon"><i class="fa fa-key fa-fw"></i></div>	        		
+		              	<input type="password" class="form-control" name="password1" placeholder="******">           
+		          	</div>	
+                </div>
+                <div class="form-group">
+	        		<div class="input-group">
+                        <div class="input-group-addon"><i class="fa fa-key fa-fw"></i></div>
+                        	        		
+		              	<input type="password" class="form-control" name="password2" placeholder="******">           
+		          	</div>	
+	        	</div>
+	        	<!--          	
+	          	<div class="form-group">
+				    <div class="checkbox squaredTwo">
+				        <input type="checkbox" id="c1" name="cc" />
+						<label for="c1"><span></span>Remember me</label>
+				    </div>				    
+			
+		<!--<div class="templatemo-content-widget templatemo-login-widget templatemo-register-widget white-bg">
+			<p>Not a registered user yet? <strong><a href="#" class="blue-text">Sign up now!</a></strong></p>
+		</div>-->
+	

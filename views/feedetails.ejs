@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html >
+    <head>
+  <% include ./head.ejs%>
+  <style>
+  
+  
+      
+    
+
+      .awesome {
+        
+        font-family: futura;
+        font-style: bold;
+        
+        width:100%;
+        
+        margin: 0 auto;
+        text-align: left;
+        
+        color:#313131;
+        font-size:35px;
+        font-weight: bold;
+        position: relative;
+        -webkit-animation:colorchange 1s infinite alternate;
+        
+        
+      }
+  
+      @-webkit-keyframes colorchange {
+        0% {
+          
+          color: blue;
+        }
+        
+        10% {
+          
+          color: blue;
+        }
+        
+        20% {
+          
+          color: blue;
+        }
+        
+        30% {
+          
+          color: blue;
+        }
+        
+        40% {
+          
+          color: blue;
+        }
+        
+        50% {
+          
+          color: red;
+        }
+        
+        60% {
+          
+          color: red;
+        }
+        
+        70% {
+          
+          color: red;
+        }
+        80% {
+       
+          color: red;
+        }
+        
+        90% {
+       
+          color: red;
+        }
+        
+        100% {
+          
+          color:red;
+        }
+      }
+      </style>
+</head>
+<body>
+  <% include ./header.ejs%>
+  
+
+  <div class="w3-overlay w3-hide-large" onclick="w3_close()" style="cursor:pointer" title="close side menu" id="myOverlay"></div>
+
+<!-- !PAGE CONTENT! -->
+<div class="w3-main" style="margin-left:340px;margin-right:40px">
+
+  
+  
+  <!-- Contact -->
+  <div class="w3-container" id="contact" style="margin-top:75px">
+      
+          <h1 class="w3-xxxlarge w3-text-red"><b>ADD FEE DETAILS</b></h1>
+          
+        <p class="awesome">DOWNLOAD THE SAMPLE CSV FILE HERE</p></br>
+      
+      
+          <a href="/samplefee.csv" download class="w3-button  w3-padding-large w3-red " >DOWNLOAD</a>
+    
+    <hr style="width:50px;border:5px solid red" class="w3-round">
+    <p>Choose a csv file to upload</p>
+    <form action="/fee/feedetails" method="POST">
+      <div class="w3-section">
+        <label>Choose a file</label>
+        <input class="w3-input w3-border" type="file" name="studentfile" required>
+      </div>
+      
+      <button type="submit" class="w3-button w3-block w3-padding-large w3-red w3-margin-bottom">Send Message</button>
+    </form>  
+  </div>
+
+<!-- End page content -->
+</div>
+    
+
+
+<% include ./footer.ejs%>
+  
+  </body>
+</html>

@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <% include ./head.ejs%>
+  </head>
+  <body>
+    <div class="login-box">
+      <img src="/img/logo.png" class="avatar" alt="Avatar Image">
+      <h1>Login Here</h1>
+      <!-- <form action="/users/login" method="POST"> -->
+        <input type="text" placeholder="Enter Number" required name="phn" id="phoneNumber"> 
+        <input value="Login" onclick="submitPhoneNumberAuth()"  type="submit">
+        <input type="text" id="code" placeholder="Enter OTP" />
+
+        <input type="submit" id="confirm-code" onclick="submitPhoneNumberAuthCode()" value="Submit OTP">
+
+        <!-- <input type="submit" id="sign-out" onclick="signout()" value="Signout"> -->
+          
+        
+        <a href="#">Don't have An account</a><br>
+        <a href="/users/usignup">User?</a>&nbsp;&nbsp;&nbsp;&nbsp;
+        <a href="/users/wsignup">Worker?</a>
+        <div id="recaptcha-container"></div>
+        
+      <!-- </form> -->
+    </div>
+  </body>
+  <script>
+      // Create a Recaptcha verifier instance globally
+      // Calls submitPhoneNumberAuth() when the captcha is verified
+      firebase.auth().languageCode = 'en';
+      window.recaptchaVerifier = new firebase.auth.RecaptchaVerifier(
+        "recaptcha-container",
+        {
+          size: "normal",
+          callback: function(response) {
+            submitPhoneNumberAuth();
+          }
+        }
+      );
+
+      // This function runs when the 'sign-in-button' is clicked
+      // Takes the value from the 'phoneNumber' input and sends SMS to that phone number
+      function submitPhoneNumberAuth() {
+        var phoneNumber = document.getElementById("phoneNumber").value;
+        phoneNumber = "+91" + phoneNumber;
+        // phoneNumber.toString();
+        
+        var appVerifier = window.recaptchaVerifier;
+        firebase
+          .auth()
+          .signInWithPhoneNumber(phoneNumber, appVerifier)
+          .then(function(confirmationResult) {
+            console.log(phoneNumber);
+            window.confirmationResult = confirmationResult;
+          })
+          .catch(function(error) {
+            console.log(error);
+          });
+      }
+
+      // This function runs when the 'confirm-code' button is clicked
+      // Takes the value from the 'code' input and submits the code to verify the phone number
+      // Return a user object if the authentication was successful, and auth is complete
+      function submitPhoneNumberAuthCode() {
+        var code = document.getElementById("code").value;
+        confirmationResult
+          .confirm(code)
+          .then(function(result) {
+            var user = result.user;
+            console.log(user);
+          })
+          .catch(function(error) {
+            console.log(error);
+          });
+      }
+
+      //This function runs everytime the auth state changes. Use to verify if the user is logged in
+      firebase.auth().onAuthStateChanged(function(user) {
+        if (user) {
+          console.log("USER LOGGED IN");
+          window.location.href = '/users/index';
+          
+        } else {
+          // No user is signed in.
+          console.log("USER NOT LOGGED IN");
+          // window.location.href = '/users/login'
+        }
+      });
+
+      // function signout(){
+
+      // firebase.auth().signOut().then(function() {
+      //     console.log("signout sucessfully");
+      // }).catch(function(error) {
+      //     // An error happened.
+      //   });
+      // }
+    
+  </script>
+</html>

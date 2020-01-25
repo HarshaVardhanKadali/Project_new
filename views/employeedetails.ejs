@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html >
+    <head>
+  <% include ./head.ejs%>
+  <style>
+    ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #f44336;
+}
+
+li {
+    float: left;
+}
+
+li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+li a:hover:not(.active) {
+    background-color: white;
+}
+
+.active {
+    background-color: #4CAF50;
+}
+  </style>
+ 
+</head>
+<body>
+  <% include ./header.ejs%>
+  
+  
+ 
+
+<!-- !PAGE CONTENT! -->
+<div class="w3-main" style="margin-left:340px;margin-right:40px">
+
+  
+  
+  <!-- Contact -->
+  <div class="w3-container" id="contact" style="margin-top:75px">
+    <h1 class="w3-xxxlarge w3-text-red"><b> EMPLOYEE DETAILS</b></h1>
+    <ul>
+      <li><a class="w3-hover-white" href="/users/employeedetails">ADD</a></li>
+      <li><a class="w3-hover-white" href="/users/viewemployee">VIEW</a></li>
+      <li><a class="w3-hover-white" href="/users/deleteemployee">DELETE</a></li>
+      <li><a class="w3-hover-white" href="#about">UPDATE</a></li>
+    </ul>
+    <hr style="width:50px;border:5px solid red" class="w3-round">
+    <p>Enter the employee details</p>
+    <form action="/users/register" method="POST">
+      <div class="w3-section">
+        <label>Name</label>
+        <input class="w3-input w3-border" type="text" name="name" required placeholder="NAME">
+      </div>
+      <div class="w3-section">
+        <label>User name</label>
+        <input class="w3-input w3-border" type="text" name="username" required placeholder="username">
+      </div>
+      <div class="w3-section">
+        <label>Email</label>
+        <input class="w3-input w3-border" type="email" name="email" required placeholder="Email">
+      </div>
+      <div class="w3-section">
+        <label>Phone</label>
+        <input class="w3-input w3-border" type="tel" name="phone" required placeholder="Phone">
+      </div><div class="w3-section">
+        <label>Role ID</label>
+        <select name="roleid" id=""  class="w3-input w3-border">
+            <option value="admin">admin</option>
+            <option value="tpgs">Tpg-school</option>
+            <option value="tpgi">Tpg-inter</option>
+            <option value="duvvas">Duvva-school</option>
+            <option value="duvvai">Duvva-inter</option>
+        </select>
+      </div>
+      <div class="w3-section">
+        <label>Password</label>
+        <input class="w3-input w3-border" type="password" name="password" required placeholder="*********">
+      </div>
+      <div class="w3-section">
+        <label>Confirm Password</label>
+        <input class="w3-input w3-border" type="password" name="password2" required placeholder="*********">
+      </div>
+      <button type="submit" class="w3-button w3-block w3-padding-large w3-red w3-margin-bottom">Add Employee</button>
+    </form>  
+  </div>
+
+<!-- End page content -->
+</div>
+    
+
+
+<% include ./footer.ejs%>
+  
+  </body>
+</html>
